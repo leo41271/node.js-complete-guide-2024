@@ -27,7 +27,8 @@ const server = http.createServer((req, res) => {
         });
         res.statusCode = 302;
         res.setHeader('Location', '/');
-        return res.end();
+        console.log('999');
+        return res.end(); // 999 > data > end // 先執行前面三行 再執行return 的end，但 執行end 前會先確保其他先執行，所以data 第二 end 最後
     }
     res.setHeader('Content-Type', 'text/html');
     res.write('<html>');
